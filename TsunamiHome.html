@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        header img {
+            height: 150px;
+        }
+        header h1 {
+            font-size: 3em;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+        }
+        nav a, .dropdown-btn {
+            color: #fff;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            display: block;
+            background: #444;
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+        nav a:hover, .dropdown-btn:hover {
+            background-color: #B22222;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+        }
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        section {
+            flex: 1;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        iframe {
+            width: 80%;
+            height: 500px; /* Adjust height as needed */
+            border: none;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Company Logo">
+        <h1>Tsunami Security</h1>
+    </header>
+
+    <nav>
+        <div class="tooltip">
+            <a href="#" data-src="slider.html" class="nav-link">Home</a>
+            <div class="tooltiptext">Go to Home</div>
+        </div>
+        <div class="tooltip">
+            <a href="#" data-src="AboutUs.html" class="nav-link">About Us</a>
+            <div class="tooltiptext">Learn more about us</div>
+        </div>
+        <div class="dropdown tooltip">
+            <button class="dropdown-btn">Our Services</button>
+            <div class="tooltiptext">Explore our services</div>
+            <div class="dropdown-content">
+                <a href="#" data-src="CCTVandAlarm.html" class="nav-link">CCTV/Alarm Installation</a>
+                <a href="#" data-src="guarding.html" class="nav-link">Guarding</a>
+                <a href="#" data-src="VIPProtection.html" class="nav-link">VIP Protection</a>
+                <a href="#" data-src="ArmedResponse.html" class="nav-link">Armed Response</a>
+                <a href="#" data-src="Training.html" class="nav-link">Training</a>
+            </div>
+        </div>
+        <div class="tooltip">
+            <a href="#" data-src="contactus.html" class="nav-link">Contact Us</a>
+            <div class="tooltiptext">Get in touch with us</div>
+        </div>
+    </nav>
+
+    <section>
+        <iframe id="content-frame" src="slider.html"></iframe>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Tsunami Security. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default anchor click behavior
+                const iframe = document.getElementById('content-frame');
+                const src = this.getAttribute('data-src');
+                
+                // Reload iframe with the new src
+                iframe.src = src;
+            });
+        });
+    </script>
+</body>
+</html>

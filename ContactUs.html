@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Tsunami Security</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px; /* Center the form and give it a max width */
+            padding: 20px;
+            background-color: #ffffff; /* White background for the form */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            text-align: center;
+            color: #000; /* Black color for the heading */
+            margin-bottom: 20px;
+        }
+        form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #000; /* Black color for labels */
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #000; /* Black border color */
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #000; /* Black background for the button */
+            color: #ffffff; /* White text color */
+            border: none;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        input[type="submit"]:hover {
+            background-color: #444; /* Dark grey on hover */
+        }
+        .contact-info {
+            margin-top: 20px;
+            text-align: center;
+            color: #000; /* Black text color for contact info */
+        }
+        .contact-info p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <form action="sendemail.php" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+            <input type="submit" value="Send">
+        </form>
+        <div class="contact-info">
+            <p><strong>Email:</strong> sales@tsunamisecurity.co.za, finance@tsunamisecurity.co.za, admin@tsunamisecurity.co.za</p>
+            <p><strong>WhatsApp Number:</strong> 076 959 2963</p>
+        </div>
+    </div>
+</body>
+</html>
